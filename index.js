@@ -36,17 +36,31 @@ const CHANNEL_ID = "527866208427442197";
 // };
 
 client.login(process.env.BOT_TOKEN)
-    .then(() => console.log("Valid token"))
-    .catch(() => console.log("Invalid token"));
+    .then(() => {
+        console.log(`Logged in as ${client.user.tag}`);
+        client.guilds
+            .find("id", SERVER_ID).channels
+            .find("id", CHANNEL_ID)
+            .send("Hello world!")
+            .then(() => {
+                client.destroy();
+                process.exit(0);
+            })
+            .catch(e => {
+                console.error(e);
+                client.destroy();
+                process.exit(1);
+            });
+    })
+    .catch(() => {
+        console.error("Couldn't log in");
+        client.destroy();
+        process.exit(1);
+    });
 
 // Client events.
 client.on("ready", () => {
-    console.log(`Logged in as ${client.user.tag}`);
-    console.log(client.guilds);
-    console.log(client.guilds.find("id", SERVER_ID));
-    console.log(client.guilds.find("id", SERVER_ID).channels.find("id", CHANNEL_ID));
-    client.guilds.find("id", SERVER_ID).channels.find("id", CHANNEL_ID).send("Hello world!");
-    process.exit(0);
+    console.log("Ready");
 });
 
 // client.on("message", message => {
