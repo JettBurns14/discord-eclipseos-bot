@@ -1,0 +1,23 @@
+{
+  "name": "discord-eclipseos-bot",
+  "version": "1.0.0",
+  "description": "Bot for the Eclipse OS server, which reposts comments made by EOS devs on KA inside a channel on Discord.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JettBurns14/discord-eclipseos-bot.git"
+  },
+  "author": "Jett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JettBurns14/discord-eclipseos-bot/issues"
+  },
+  "homepage": "https://github.com/JettBurns14/discord-eclipseos-bot#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "request": "^2.88.0"
+  }
+}
