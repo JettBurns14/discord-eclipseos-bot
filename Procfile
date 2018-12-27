@@ -1,1 +1,1 @@
-run_bots: node test.js
+run_bot: node index.js
