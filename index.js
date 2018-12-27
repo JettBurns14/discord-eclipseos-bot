@@ -35,6 +35,10 @@ const CHANNEL_ID = "527866208427442197";
 //     sendDM({ embed });
 // };
 
+client.login(process.env.BOT_TOKEN)
+    .then(() => console.log("Valid token"))
+    .catch(() => console.log("Invalid token"));
+
 // Client events.
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`);
@@ -42,7 +46,9 @@ client.on("ready", () => {
     console.log(client.guilds.find("id", SERVER_ID));
     console.log(client.guilds.find("id", SERVER_ID).channels.find("id", CHANNEL_ID));
     client.guilds.find("id", SERVER_ID).channels.find("id", CHANNEL_ID).send("Hello world!");
+    process.exit(0);
 });
+
 // client.on("message", message => {
 //     if (message.author.bot) return;
 //     if (!message.content.startsWith(prefix)) return;
@@ -55,5 +61,3 @@ client.on("ready", () => {
 //         }).catch(e => sendError(e));
 //     }
 // });
-
-process.exit(0);
